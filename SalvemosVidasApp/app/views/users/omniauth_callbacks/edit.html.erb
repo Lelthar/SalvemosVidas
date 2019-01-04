@@ -1,0 +1,26 @@
+<%= form_tag "/custom_sign_up", method: :post do %>
+	<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <label {for:"user_username"}>Nombre de usuario</label>
+    <%= text_field_tag "user[username]", @user.username %>
+  </div>
+
+  <div>
+    <label {for:"user_email"}>Correo</label>
+    <%= email_field_tag "user[email]", @user.email %>
+  </div>
+
+  <div>
+    <%= submit_tag "Completar registro"%>
+  </div>
+
+<% end %>
