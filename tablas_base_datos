@@ -1,0 +1,9 @@
+rails generate scaffold Lesson name:string description:string category:string user:references
+
+rails generate scaffold Slide title:string type:string lesson:references
+rails generate scaffold Practice title:string category:string description:string lesson:references
+rails generate scaffold Image path:string slide:references
+rails generate scaffold Paragraph information:string slide:references
+rails generate scaffold Question description:string correct:string incorrect1:string incorrect2:string incorrect3:string practice:references
+rails generate scaffold ForumPost title:string datail:string category:string user:references
+rails generate scaffold Commentary datail:string user:references forum_post:references

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @practice.title %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @practice.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @practice.description %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @practice.lesson %>
+</p>
+
+<%= link_to 'Edit', edit_practice_path(@practice) %> |
+<%= link_to 'Back', practices_path %>

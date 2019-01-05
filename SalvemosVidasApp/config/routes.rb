@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   
+  resources :commentaries
+  resources :forum_posts
+  resources :questions
+  resources :paragraphs
+  resources :images
+  resources :practices
+  resources :slides
+  resources :lessons
   devise_for :users, controllers: {
   	omniauth_callbacks: "users/omniauth_callbacks"
   }

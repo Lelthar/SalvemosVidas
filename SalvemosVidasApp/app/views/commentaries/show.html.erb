@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Datail:</strong>
+  <%= @commentary.datail %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @commentary.user %>
+</p>
+
+<p>
+  <strong>Forum post:</strong>
+  <%= @commentary.forum_post %>
+</p>
+
+<%= link_to 'Edit', edit_commentary_path(@commentary) %> |
+<%= link_to 'Back', commentaries_path %>
