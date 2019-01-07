@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :slides
   resources :lessons
   devise_for :users, controllers: {
-  	omniauth_callbacks: "users/omniauth_callbacks"
+  	omniauth_callbacks: "users/omniauth_callbacks",
+    registrations: "users/registrations"
   }
 
   post "/custom_sign_up", to: "users/omniauth_callbacks#custom_sign_up"
