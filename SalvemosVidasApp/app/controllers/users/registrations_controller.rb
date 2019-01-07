@@ -4,10 +4,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def create
-      	# add custom create logic here
-      	@user = User.new(sign_up_params)
+      # add custom create logic here
+      @user = User.new(sign_up_params)
 
-      	@user.tipo = "normal"
+      @user.tipo = "normal"
+
+      puts "usuario nuevo: ", @user.to_json
 
 	    respond_to do |format|
 	      if @user.save
@@ -26,6 +28,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sign_up_params
+      puts "Estos son los paremetros: "
+      puts params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 end 

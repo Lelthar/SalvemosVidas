@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 
   post "/custom_sign_up", to: "users/omniauth_callbacks#custom_sign_up"
 
+  get "/users_data", to: "users/administrators#index"
+  get "/users_data/new", to: "users/administrators#new"
+  post "/users_data/create", to: "users/administrators#create"
+  delete '/users_data/:id(.:format)', :to => 'users/administrators#destroy'
+
   root 'main#home'
 
   # 1 Se envia una petición a facebook

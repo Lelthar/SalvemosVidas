@@ -1,0 +1,3 @@
+class UsuarioRegistro
+
+end 

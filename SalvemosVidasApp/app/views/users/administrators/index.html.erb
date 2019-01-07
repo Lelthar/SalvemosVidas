@@ -1,0 +1,27 @@
+<h1>Usuarios</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Username</th>
+      <th>Correo</th>
+      <th>Tipo</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.username %></td>
+        <td><%= user.email %></td>
+        <td><%= user.tipo %></td>
+        <td><%= link_to 'Destroy', url_users_data(user.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,0 +1,40 @@
+<%= form_tag "/users_data/create", method: :post do %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= label_tag "Nombre de usuario" %>
+    <%= text_field_tag "user[username]", @user.username ,required: true%>
+  </div>
+
+  <div>
+    <%= label_tag "Correo" %>
+    <%= email_field_tag "user[email]", @user.email ,required: true%>
+  </div>
+
+  <div>
+    <%= label_tag "Tipo" %>
+    <%= text_field_tag "user[tipo]", @user.tipo ,required: true%>
+  </div>
+
+  <div>
+    <%= label_tag "Contraseña" %>
+    <%= password_field_tag "user[password]", @user.password ,required: true%>
+  </div>
+
+  <div>
+    <%= label_tag "Confirmación de contraseña" %>
+    <%= password_field_tag "user[password_confirmation]", @user.password_confirmation ,required: true%>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Registrar" %>
+  </div>
+<% end %>
