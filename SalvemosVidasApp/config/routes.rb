@@ -18,9 +18,9 @@ Rails.application.routes.draw do
   get "/users_data", to: "users/administrators#index"
   get "/users_data/new", to: "users/administrators#new"
   post "/users_data/create", to: "users/administrators#create"
-  delete '/users_data/:id(.:format)', :to => 'users/administrators#destroy'
+  delete "/users_data/:id(.:format)", :to => "users/administrators#destroy"
 
-  root 'main#home'
+  root "main#home"
 
   # 1 Se envia una petición a facebook
   # 2 Facebook retorna a la aplicación con el callback_url que se le pase

@@ -26,7 +26,7 @@ class Users::AdministratorsController < ApplicationController
 	    respond_to do |format|
 	      format.html { redirect_to users_data_path, notice: 'Se eliminó el usuario.' }
 	    end
-  end
+    end
   
   	private
 
