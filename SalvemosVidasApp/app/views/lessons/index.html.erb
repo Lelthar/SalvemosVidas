@@ -1,33 +1,81 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lessons</h1>
+<div class="container" style="margin-top: -20px; width: 95%; height: 90%;">
+  <div class="panel">
+    <div class="panel-body">
+      <div class="row">
+        <div class="panel col-sm-3" style="padding-top:10px;padding-bottom:10px;background-color:#fafafa; margin-right: 20px; margin-left: 30px;">
+          <h4 align="center" style="font-family: 'Roboto'; font-size: 18px;">Temas sobre Lecciones:</h4>
+          <!--Van las etiquetas: -->
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/cortada.png", class:"image-tema") %>
+            <a href="/">Cortadas</a>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/quimica.png", class:"image-tema") %>
+            <a href="/">Accidente Químico</a>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/quemadura.png", class:"image-tema") %>
+            <a href="/">Quemaduras</a>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/veneno.png", class:"image-tema") %>
+            <a href="/">Envenenamiento</a>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/sentidos.png", class:"image-tema") %>
+            <a href="/lessons">Afectación Sentido</a>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/accidente.png", class:"image-tema") %>
+            <a href="/">Accidente</a>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/prevencion.png", class:"image-tema") %>
+            <a href="/">Prevención</a>
+          </div>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div id="panelPrincipal" class="panel col-sm-8" style="padding-top:10px;padding-bottom:10px; margin-right: 20px;margin-left: 20px; background-color: #fafafa;">
 
-  <tbody>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= lesson.name %></td>
-        <td><%= lesson.description %></td>
-        <td><%= lesson.category %></td>
-        <td><%= lesson.user %></td>
-        <td><%= link_to 'Show', lesson %></td>
-        <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
-        <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="row">
+            <div style="float: left; margin-left: 20px;">
+              <form class="form-inline" action="/action_page.php">
+                <div class="form-group">
+                  <label for="email">Buscar:</label>
+                  <input type="text" class="form-control" id="usr" style="width: 70%">
+                </div>
+              </form>   
+            </div>
+            <div align="right" style="float: right;margin-right: 20px;">
+              <%= link_to 'Crear Nueva Lección', new_lesson_path, class:"btn"%>
+            </div>
 
-<br>
+          </div>
+          
+          <br>
 
-<%= link_to 'New Lesson', new_lesson_path %>
+          <div id="divBuscador">
+
+            <% @lessons.each do |lesson| %>
+              <div style="background: #fff; width: 100%;padding-left: 10px; padding-top: 5px;">
+              <div>
+                <a href="/lessons/<%= lesson.id %>"><%= lesson.name %></a>
+              </div>
+              <div>
+                <p><%= lesson.description %></p>
+              </div>
+              <div>
+                <p>Publicada por: <%= lesson.user.username %> el <%= lesson.created_at %> </p>
+              </div>
+            </div>
+            <br>
+          <% end %>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>

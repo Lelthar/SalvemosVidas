@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+html, body {
+    background-color: #fafafa;
+  height: 100%;
+}
 
 .navbar-inverse .nav li a{
   color: #fff !important;
@@ -50,6 +54,11 @@
  height: 30px;
 }
 
+.image-tema{
+ width: 50px;
+ height: 50px;
+}
+
 i {
   border-radius: 20px;
   font-size: 25px;
@@ -60,4 +69,25 @@ i {
   padding:7px;
   margin-top: -7.5px;
   margin-bottom: -7.5px;
+}
+
+.fixed-panel {
+  min-height: 10;
+  max-height: 10;
+  overflow-y: scroll;
+}
+
+.conteiner-tema {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding-left: 50px;
+    font-family: 'Roboto';
+    font-size: 18px;
+}
+
+.btn {
+    background-color: red;
+    color: #fff !important;
+    font-family: 'Roboto';
+    font-size: 18px !important;
 }
