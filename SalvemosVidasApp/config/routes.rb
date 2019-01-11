@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   delete "/data_users/:id(.:format)", :to => "users/administrators#destroy"
 
   #data_lessons
-  get "/data_lessons/:category(.:format)", to: "data_lessons#lesson"
+  get "/data_lessons/:category(.:format)", to: "data_lessons#lessons"
+  get "/data_lessons/info/:id(.:format)", to: "data_lessons#show"
 
   root "main#home"
 

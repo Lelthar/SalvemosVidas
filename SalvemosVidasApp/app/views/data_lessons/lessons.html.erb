@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container" style="margin-top: -20px; width: 95%; height: 90%;">
+  <div class="panel">
+    <div class="panel-body">
+      <div class="row">
+        <div class="panel col-sm-3" style="padding-top:10px;padding-bottom:10px;background-color:#fafafa; margin-right: 20px; margin-left: 30px;">
+          <h4 align="center" style="font-family: 'Roboto'; font-size: 18px;">Temas sobre Lecciones:</h4>
+          <!--Van las etiquetas: -->
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/cortada.png", class:"image-tema") %>
+            <%= link_to 'Cortadas', category: "cortadas" %>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/quimica.png", class:"image-tema") %>
+            <%= link_to 'Accidente Químico', category: "accidente_quimico" %>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/quemadura.png", class:"image-tema") %>
+            <%= link_to 'Quemaduras', category: "quemaduras" %>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/veneno.png", class:"image-tema") %>
+            <%= link_to 'Envenenamiento', category: "envenenamiento" %>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/sentidos.png", class:"image-tema") %>
+            <%= link_to 'Afectación Sentido', category: "afectacion_sentido" %>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/accidente.png", class:"image-tema") %>
+            <%= link_to 'Accidente', category: "accidente" %>
+          </div>
+          <div class="row conteiner-tema">
+            <%= image_tag("Temas/prevencion.png", class:"image-tema") %>
+            <%= link_to 'Prevención', category: "prevencion" %>
+          </div>
+        </div>
+
+        <div id="panelPrincipal" class="panel col-sm-8" style="padding-top:10px;padding-bottom:10px; margin-right: 20px;margin-left: 20px; background-color: #fafafa;">
+
+          <div class="row">
+            <div style="float: left; margin-left: 20px;">
+              <form class="form-inline" action="/action_page.php">
+                <div class="form-group">
+                  <label for="email">Buscar:</label>
+                  <input type="text" class="form-control" id="usr" style="width: 70%">
+                </div>
+              </form>   
+            </div>
+            <div align="right" style="float: right;margin-right: 20px;">
+              <%= link_to 'Crear Nueva Lección', new_lesson_path, class:"btn"%>
+            </div>
+
+          </div>
+          
+          <br>
+
+          <div id="divBuscador">
+
+            <% @lessons.each do |lesson| %>
+              <div style="background: #fff; width: 100%;padding-left: 10px; padding-top: 5px;">
+              <div>
+                <a href="/data_lessons/info/<%= lesson.id %>"><%= lesson.name %></a>
+              </div>
+              <div>
+                <p><%= lesson.description %></p>
+              </div>
+              <div>
+                <p>Publicada por: <%= lesson.user.username %> el <%= lesson.created_at %> </p>
+              </div>
+            </div>
+            <br>
+          <% end %>
+
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
