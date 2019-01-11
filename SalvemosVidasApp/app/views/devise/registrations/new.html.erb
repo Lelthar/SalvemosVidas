@@ -2,33 +2,32 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+  
   <div align="center">
     <div class="field">
-     <%= image_tag("user.png", class:"image-navbar",style:"background: #3b6061;") %>
-      <%= f.text_field :username,class:"form-control",style:"width: 220px;", autofocus: true, placeholder:"Usuario" %>
+        <%= image_tag("user.png", class:"image-navbar",style:"background: #3b6061;") %>
+        <%= f.text_field :username,class:"form-control",style:"width: 220px;", autofocus: true, placeholder:"Usuario" %>
     </div>
 
     <div class="field">
-      <%= image_tag("email.png", class:"image-navbar",style:"background: #3b6061;") %>
-      <%= f.email_field :email,class:"form-control",style:"width: 220px;", autofocus: false, autocomplete: "email",placeholder:"Correo" %>
+        <%= image_tag("email.png", class:"image-navbar",style:"background: #3b6061;") %>
+        <%= f.email_field :email,class:"form-control",style:"width: 220px;", autofocus: false, autocomplete: "email",placeholder:"Correo" %>
     </div>
 
     <div class="field">
-      <%= image_tag("email.png", class:"image-navbar",style:"background: #3b6061;") %>
-      <%= f.password_field :password,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Contraseña" %>
+        <%= image_tag("email.png", class:"image-navbar",style:"background: #3b6061;") %>
+        <%= f.password_field :password,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Contraseña" %>
     </div>
 
     <div class="field">
-      <%= image_tag("pass.png", class:"image-navbar",style:"background: #3b6061;") %>
-      <%= f.password_field :password_confirmation,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Repita su contraseña" %>
+        <%= image_tag("pass.png", class:"image-navbar",style:"background: #3b6061;") %>
+        <%= f.password_field :password_confirmation,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Repita su contraseña" %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Registro", class:"btn" %>
+      <%= f.submit "Registrarse", class:"btn" %>
     </div>
   </div>
-
 <% end %>
 
 <%= render "devise/shared/links" %>
