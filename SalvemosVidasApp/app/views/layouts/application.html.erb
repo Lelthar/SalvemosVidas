@@ -24,63 +24,39 @@
           </button>
           <%= link_to "SalvemosVidas", root_path,class:"navbar-brand",style:"font-size: 25px;font-family: 'Roboto';font-weight: 700; color:#FFFFFF;" %>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar ">
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+              <li class="<%= 'active' if params[:controller] == 'lessons' %> texto-navbar" ><a href="/lessons"><i class="color-lecciones"><%= image_tag("lecciones.png", class:"image-navbar") %></i>Lecciones</a> </li>
+
+              <li class="<%= 'active' if params[:controller] == 'practices' %> texto-navbar" ><a href="/practices"> <i class="color-practica"><%= image_tag("practica.png", class:"image-navbar") %></i>Practica</a> </li>
+
+              <li class="<%= 'active' if params[:controller] == 'forum_posts' %> texto-navbar" ><a href="/forum_posts"> <i class="color-foro"><%= image_tag("foro.png", class:"image-navbar") %></i>Foro</a> </li>
+            </ul>
           <% if signed_in?%>
-            <ul class="nav navbar-nav">
-              <li class="<%= 'active' if params[:controller] == 'welcome' %> texto-navbar" ><a href="/"> <%= image_tag("lecciones.png", class:"img-circle image-navbar color-lecciones") %> Lecciones</a> </li>
-              <li class="<%= 'active' if params[:controller] == 'welcome' %> texto-navbar" ><a href="/"> <%= image_tag("practica.png", class:"img-circle image-navbar color-practica") %> Practica</a> </li>
-              <li class="<%= 'active' if params[:controller] == 'welcome' %> texto-navbar" ><a href="/"> <%= image_tag("foro.png", class:"img-circle image-navbar color-foro") %> Foro</a> </li>
-            </ul>  
             <ul class="nav navbar-nav navbar-right">
               <li class=" dropdown"><a href="#" class="dropdown-toggle active texto-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Menú<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li class="texto-nav"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+                <ul class="dropdown-menu" style="background: #3b6061">
+                  <li class="texto-navbar"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
                 </ul>               
               </li>
             </ul>
 
             <!-- Cuando no esta logueado -->
-          <% else %>
-            <ul class="nav navbar-nav">
-              <li class="<%= 'active' if params[:controller] == 'welcome' %> texto-navbar" ><a href="/"> <%= image_tag("lecciones.png", class:"img-circle image-navbar color-lecciones") %> Lecciones</a> </li>
-              <li class="<%= 'active' if params[:controller] == 'welcome' %> texto-navbar" ><a href="/"> <%= image_tag("practica.png", class:"img-circle image-navbar color-practica") %> Practica</a> </li>
-              <li class="<%= 'active' if params[:controller] == 'welcome' %> texto-navbar" ><a href="/"> <%= image_tag("foro.png", class:"img-circle image-navbar color-foro") %> Foro</a> </li>
-            </ul>  
+          <% else %> 
             <ul class="nav navbar-nav navbar-right">
               <li class=" dropdown"><a href="#" class="dropdown-toggle active texto-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú<span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li class="<%= 'active' if request.original_url == request.base_url+"/users/sign_in" %> texto-nav"><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Inicio de sesión</a></li>
-                        <li class="<%= 'active' if request.original_url == request.base_url+"/users/sign_up" %> texto-nav"><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Registro</a></li>
-                      </ul>
-                    </li>
+                <ul class="dropdown-menu" style="background: #3b6061">
+                  <li class="<%= 'active' if request.original_url == request.base_url+"/users/sign_in" %> texto-navbar"><a href="/users/sign_in"><span class="glyphicon glyphicon-log-in"></span> Inicio de sesión</a></li>
+                  <li class="<%= 'active' if request.original_url == request.base_url+"/users/sign_up" %> texto-navbar"><a href="/users/sign_up"><span class="glyphicon glyphicon-user"></span> Registro</a></li>
+                </ul>
+              </li>
             </ul>
           <% end %>
         </div>
       </div>
     </nav>
 
-    <div class="container">
-      <div class="row">
-        <% flash.each do |type, msg| %>
-          <% if type == "notice" %>
-            <div class="alert alert-success">
-          <% elsif type == "alert" %>
-            <div class="alert alert-danger">
-          <% else %>
-            <div class='alert alert-<%= "#{type}" %>'>
-          <% end %>
-            <a href="#" class="close" data-dismiss="alert">&#215;</a>
-          <ul>
-            <li>
-              <%= "Aviso: "+msg %>
-            </li>
-          </ul>
-        <% end %>
-      </div>
-    </div>
-
     <%= yield %>
-
     
   </body>
 </html>
