@@ -15,10 +15,14 @@ Rails.application.routes.draw do
 
   post "/custom_sign_up", to: "users/omniauth_callbacks#custom_sign_up"
 
-  get "/users_data", to: "users/administrators#index"
-  get "/users_data/new", to: "users/administrators#new"
-  post "/users_data/create", to: "users/administrators#create"
-  delete "/users_data/:id(.:format)", :to => "users/administrators#destroy"
+  #admnistrators
+  get "/data_users", to: "users/administrators#index"
+  get "/data_users/new", to: "users/administrators#new"
+  post "/data_users/create", to: "users/administrators#create"
+  delete "/data_users/:id(.:format)", :to => "users/administrators#destroy"
+
+  #data_lessons
+  get "/data_lessons/:category(.:format)", to: "data_lessons#lesson"
 
   root "main#home"
 
