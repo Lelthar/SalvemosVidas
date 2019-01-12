@@ -29,7 +29,15 @@
     <div class="form-group">
       <%= form.label :Categoria, class:"control-label col-sm-2"%>
       <div class="col-sm-10">
-        <%= form.text_field :category, class:"form-control",placeholder:"Ingrese el dato..." %>
+        <select class="form-control" name="lesson[category]" id="lesson_category">
+            <option value="cortadas">cortadas</option>
+            <option value="accidente_quimico">accidente_quimico</option>
+            <option value="quemaduras">quemaduras</option>
+            <option value="envenenamiento">envenenamiento</option>
+            <option value="afectacion_sentido">afectacion_sentido</option>
+            <option value="accidente">accidente</option>
+            <option value="prevencion">prevencion</option>
+        </select>
       </div>
     </div>
 

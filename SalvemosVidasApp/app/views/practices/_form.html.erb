@@ -11,27 +11,49 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="form-horizontal">
+    <div class="form-group">
+      <%= form.label :Titulo, class:"control-label col-sm-2"%>
+      <div class="col-sm-10">
+        <%= form.text_field :title, class:"form-control",placeholder:"Ingrese el dato..." %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :Descripción, class:"control-label col-sm-2"%>
+      <div class="col-sm-10">
+        <%= form.text_area :description, class:"form-control", rows:5,placeholder:"Ingrese el dato..." %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :Categoria, class:"control-label col-sm-2"%>
+      <div class="col-sm-10">
+        <select class="form-control" name="practice[category]" id="practice_category">
+            <option value="cortadas">cortadas</option>
+            <option value="accidente_quimico">accidente_quimico</option>
+            <option value="quemaduras">quemaduras</option>
+            <option value="envenenamiento">envenenamiento</option>
+            <option value="afectacion_sentido">afectacion_sentido</option>
+            <option value="accidente">accidente</option>
+            <option value="prevencion">prevencion</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :Lección, class:"control-label col-sm-2"%>
+      <div class="col-sm-10">
+        <%= form.text_field :lesson_id, class:"form-control",placeholder:"Ingrese el dato..." %>
+      </div>
+    </div>
+
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= form.submit "Agregar Practica" , class:"btn"%>
+      </div>
+    </div>
+
   </div>
 
-  <div class="field">
-    <%= form.label :category %>
-    <%= form.text_field :category %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lesson_id %>
-    <%= form.text_field :lesson_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
