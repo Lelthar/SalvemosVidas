@@ -1,6 +1,66 @@
-<h1>Ventana de inicio</h1>
 
-<% if user_signed_in? %>
-	<p>Hola <%= current_user.email%></p>
-	<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
-<% end %>
+<div class="container">
+	<div class="row">
+		<hr class="separador">
+
+		<div class="col-sm-4 text-center">
+			<a href="/lessons/category/all"> <%= image_tag("i_lecciones.png", class:"img-responsive img-home") %> </a>
+			<a href="/lessons/category/all"> <h2>Lecciones</h2> </a>
+			<p class="texto-home">
+				Aprende sobre diversos temas mediante diapositivas
+			</p>
+		</div>
+
+		<div class="col-sm-4 text-center">
+			<a href="/practices/category/all"><%= image_tag("i_practicas.jpg", class:"img-responsive img-home") %></a>
+			<a href="/practices/category/all"> <h2>Prácticas</h2> </a>
+			<p class="texto-home">
+				Pon a prueba tus conocimientos adquiridos de las lecciones
+			</p>
+		</div>
+
+		<div class="col-sm-4 text-center">
+			<a href="/forum_posts"><%= image_tag("i_foro.png", class:"img-responsive img-home") %></a>
+			<a href="/forum_posts"> <h2>Foro</h2> </a>
+			<p class="texto-home">
+				Pregunta, responde y comenta con personas como vos
+			</p>
+		</div>
+	</div>
+
+	<% if user_signed_in? %>
+	<div class="row">
+		<hr class="separador">
+
+		<div class="col-sm-4 col-sm-offset-2 text-center">
+			<%= link_to image_tag("i_crear_leccion.png", class:"img-responsive img-home"), new_lesson_path %>
+			<h2> <%= link_to 'Crear lección', new_lesson_path, class:"railsLink" %> </h2>
+			<p class="texto-home">
+				Diseña tu propia lección mediante el uso diapositivas
+			</p>
+		</div>
+
+		<div class="col-sm-4 text-center">
+			<%= link_to image_tag("i_crear_practica.png", class:"img-responsive img-home"), new_practice_path %>
+			<h2> <%= link_to 'Crear práctica', new_practice_path, class:"railsLink" %> </h2>
+			<p class="texto-home">
+				Añade una práctica a una lección con las preguntas y opciones que quieras
+			</p>
+		</div>
+	</div>
+	<% end %>
+
+	<div class="row">
+		<hr class="separador">
+
+		<div class="col-sm-4 col-sm-offset-4 text-center">
+			<%= image_tag("i_acerca_de.png", class:"img-responsive img-home") %>
+			<h2>Acerca de</h2>
+			<p class="texto-home">
+				Somos estudiantes del ITCR de la carrera Ingeniería en Computación, con la ilusión 
+				de crear un sitio web que ayude a las personas a conocer sobre primeros auxilios.
+			</p>
+		</div>
+	</div>
+
+</div>
