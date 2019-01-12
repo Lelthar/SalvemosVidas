@@ -1,7 +1,7 @@
 class DataLessonsController < ApplicationController
 	before_action :set_lessons, only: [:lessons]
 	before_action :set_lesson, only: [:show]
-
+	before_action :authenticate_user!
 	#Muestra la leccion
 	def show
 

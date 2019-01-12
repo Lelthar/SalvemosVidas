@@ -1,15 +1,10 @@
-<% if signed_in? %>
-	<h2 align="center">Creación de Lección</h2>
 
-	<%= render 'form', lesson: @lesson %>
+<h2 align="center">Creación de Lección</h2>
 
-	<div class="col-sm-offset-2 col-sm-10">
-        <%= button_to 'Volver', "/data_lessons/all", class:"btn" , method: :get %>
-    </div>
+<%= render 'form', lesson: @lesson %>
 
-<% else %>
-    <div class="alert alert-danger panel-ancho">
-      <h4>Error!</h4>
-      <p>Necesita iniciar sesión para acceder a esta dirección.</p>
-    </div>
-<% end %>
+<div class="col-sm-offset-2 col-sm-10">
+      <%= button_to 'Volver', "/data_lessons/all", class:"btn" , method: :get %>
+</div>
+
+

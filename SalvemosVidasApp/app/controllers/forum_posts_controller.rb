@@ -1,6 +1,6 @@
 class ForumPostsController < ApplicationController
   before_action :set_forum_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /forum_posts
   # GET /forum_posts.json
   def index

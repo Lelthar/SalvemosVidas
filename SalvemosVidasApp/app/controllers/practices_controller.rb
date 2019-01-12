@@ -1,6 +1,7 @@
 class PracticesController < ApplicationController
   before_action :set_practice, only: [:show, :edit, :update, :destroy]
   before_action :set_practices, only: [:category]
+  before_action :authenticate_user!
   # GET /practices
   # GET /practices.json
   def index

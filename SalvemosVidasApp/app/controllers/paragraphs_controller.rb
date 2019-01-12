@@ -1,6 +1,6 @@
 class ParagraphsController < ApplicationController
   before_action :set_paragraph, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /paragraphs
   # GET /paragraphs.json
   def index

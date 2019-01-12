@@ -1,6 +1,7 @@
 class CommentariesController < ApplicationController
   before_action :set_commentary, only: [:show, :edit, :update, :destroy]
   before_action :set_article
+  before_action :authenticate_user!
   # GET /commentaries
   # GET /commentaries.json
   def index
@@ -78,6 +79,6 @@ class CommentariesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commentary_params
-      params.require(:commentary).permit(:datail, :user_id, :forum_post_id)
+      params.require(:commentary).permit(:datail)
     end
 end
