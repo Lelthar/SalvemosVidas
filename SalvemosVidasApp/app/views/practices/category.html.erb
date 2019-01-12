@@ -49,8 +49,7 @@
               </form>   
             </div>
             <div align="right" style="float: right;margin-right: 20px;">
-              <%= link_to 'Crear Nueva Lección', "/data_lessons/new", class:"btn"%>
-              <a href="/data_lessons/new"></a>
+              <%= link_to 'Crear Nueva Lección', new_practice_path, class:"btn"%>
             </div>
 
           </div>
@@ -59,16 +58,16 @@
 
           <div id="divBuscador">
 
-            <% @lessons.each do |lesson| %>
+            <% @practices.each do |practice| %>
               <div style="background: #fff; width: 100%;padding-left: 10px; padding-top: 5px;">
               <div>
-                <a href="/data_lessons/info/<%= lesson.id %>"><%= lesson.name %></a>
+                <a href="/practices/<%= practice.id %>"><%= practice.title %></a>
               </div>
               <div>
-                <p><%= lesson.description %></p>
+                <p><%= practice.description %></p>
               </div>
               <div>
-                <p>Publicada por: <%= lesson.user.username %> el <%= lesson.created_at %> </p>
+                <p>Practica de la lección: <%= link_to lesson.name, practice %></a> , creada el <%= practice.created_at %> por <%= practice.lesson.user.username%>. </p>
               </div>
             </div>
             <br>

@@ -10,6 +10,24 @@ class DataLessonsController < ApplicationController
 	def lessons
 	end
 
+	def new
+    @lesson = Lesson.new
+  end
+
+	def create
+    @lesson = Lesson.new(lesson_params)
+
+    respond_to do |format|
+      if @lesson.save
+        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+        format.json { render :show, status: :created, location: @lesson }
+      else
+        format.html { render :new }
+        format.json { render json: @lesson.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 	private									
 	  def set_lessons
 	  	if (params[:category] == "all")

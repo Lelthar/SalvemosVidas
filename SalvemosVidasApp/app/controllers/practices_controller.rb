@@ -1,6 +1,6 @@
 class PracticesController < ApplicationController
   before_action :set_practice, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_practices, only: [:category]
   # GET /practices
   # GET /practices.json
   def index
@@ -19,6 +19,9 @@ class PracticesController < ApplicationController
 
   # GET /practices/1/edit
   def edit
+  end
+
+  def category
   end
 
   # POST /practices
@@ -62,6 +65,14 @@ class PracticesController < ApplicationController
   end
 
   private
+
+    def set_practices
+      if (params[:category] == "all")
+        @practices = Practice.all.order("created_at desc")
+      else
+        @practices = Practice.where(category: params[:category]).order("created_at desc")
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_practice
       @practice = Practice.find(params[:id])

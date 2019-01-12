@@ -4,7 +4,7 @@
 	<%= render 'form', lesson: @lesson %>
 
 	<div class="col-sm-offset-2 col-sm-10">
-        <%= button_to 'Volver', "/data_lessons/all", class:"btn" , method: :get %>
+        <%= button_to 'Volver', lessons_path, class:"btn" , method: :get %>
     </div>
 
 <% else %>

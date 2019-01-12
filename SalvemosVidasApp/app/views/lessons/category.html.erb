@@ -49,8 +49,7 @@
               </form>   
             </div>
             <div align="right" style="float: right;margin-right: 20px;">
-              <%= link_to 'Crear Nueva Lección', "/data_lessons/new", class:"btn"%>
-              <a href="/data_lessons/new"></a>
+              <%= link_to 'Crear Nueva Lección', new_lesson_path, class:"btn"%>
             </div>
 
           </div>
@@ -62,7 +61,7 @@
             <% @lessons.each do |lesson| %>
               <div style="background: #fff; width: 100%;padding-left: 10px; padding-top: 5px;">
               <div>
-                <a href="/data_lessons/info/<%= lesson.id %>"><%= lesson.name %></a>
+                <%= link_to lesson.name, lesson %>
               </div>
               <div>
                 <p><%= lesson.description %></p>

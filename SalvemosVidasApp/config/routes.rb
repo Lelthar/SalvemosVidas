@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   }
 
   post "/custom_sign_up", to: "users/omniauth_callbacks#custom_sign_up"
-
+  get "/lessons/category/:category(.:format)", to: "lessons#category"
+  get "/practices/category/:category(.:format)", to: "practices#category"
   #admnistrators
   get "/data_users", to: "users/administrators#index"
   get "/data_users/new", to: "users/administrators#new"
@@ -22,8 +23,10 @@ Rails.application.routes.draw do
   delete "/data_users/:id(.:format)", :to => "users/administrators#destroy"
 
   #data_lessons
+  get "/data_lessons/new" , to: "data_lessons#new"
   get "/data_lessons/:category(.:format)", to: "data_lessons#lessons"
   get "/data_lessons/info/:id(.:format)", to: "data_lessons#show"
+  post "/data_lessons" , to: "data_lessons#create"
 
   root "main#home"
 

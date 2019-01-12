@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lessons, only: [:category]
 
   # GET /lessons
   # GET /lessons.json
@@ -19,6 +20,9 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1/edit
   def edit
+  end
+
+  def category
   end
 
   # POST /lessons
@@ -62,6 +66,14 @@ class LessonsController < ApplicationController
   end
 
   private
+    def set_lessons
+      if (params[:category] == "all")
+        @lessons = Lesson.all.order("created_at desc")
+      else
+        @lessons = Lesson.where(category: params[:category]).order("created_at desc")
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
       @lesson = Lesson.find(params[:id])
