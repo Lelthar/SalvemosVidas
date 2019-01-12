@@ -1,6 +1,6 @@
 class CommentariesController < ApplicationController
   before_action :set_commentary, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_article
   # GET /commentaries
   # GET /commentaries.json
   def index
@@ -24,13 +24,18 @@ class CommentariesController < ApplicationController
   # POST /commentaries
   # POST /commentaries.json
   def create
-    @commentary = Commentary.new(commentary_params)
+    @commentary = current_user.commentaries.new(commentary_params)
+    @commentary.forum_post = @forum_post
 
+    puts "Aqui esto1"
     respond_to do |format|
+      puts @commentary.to_json
       if @commentary.save
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully created.' }
+        puts "Aqui esto2"
+        format.html { redirect_to @commentary.forum_post, notice: 'Commentary was successfully created.' }
         format.json { render :show, status: :created, location: @commentary }
       else
+        puts "Aqui esto3"
         format.html { render :new }
         format.json { render json: @commentary.errors, status: :unprocessable_entity }
       end
@@ -42,7 +47,7 @@ class CommentariesController < ApplicationController
   def update
     respond_to do |format|
       if @commentary.update(commentary_params)
-        format.html { redirect_to @commentary, notice: 'Commentary was successfully updated.' }
+        format.html { redirect_to @commentary.forum_post, notice: 'Commentary was successfully updated.' }
         format.json { render :show, status: :ok, location: @commentary }
       else
         format.html { render :edit }
@@ -56,12 +61,16 @@ class CommentariesController < ApplicationController
   def destroy
     @commentary.destroy
     respond_to do |format|
-      format.html { redirect_to commentaries_url, notice: 'Commentary was successfully destroyed.' }
+      format.html { redirect_to @forum_post, notice: 'Commentary was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def set_article
+      @forum_post = ForumPost.find(params[:forum_post_id])
+      puts "obtuve el parametro",@forum_post
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_commentary
       @commentary = Commentary.find(params[:id])

@@ -1,10 +1,10 @@
-<%= form_with(model: commentary, local: true) do |form| %>
-  <% if commentary.errors.any? %>
+<%= form_with(model: [@forum_post, @commentary], remote: true) do |form| %>
+  <% if @commentary.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
+      <h2><%= pluralize(@commentary.errors.count, "error") %> prohibited this commentary from being saved:</h2>
 
       <ul>
-      <% commentary.errors.full_messages.each do |message| %>
+      <% @commentary.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -14,16 +14,6 @@
   <div class="field">
     <%= form.label :datail %>
     <%= form.text_field :datail %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :forum_post_id %>
-    <%= form.text_field :forum_post_id %>
   </div>
 
   <div class="actions">

@@ -14,5 +14,6 @@
 class ForumPost < ApplicationRecord
   belongs_to :user
 
+  has_many :commentaries
   has_many :users, through: :commentaries
 end

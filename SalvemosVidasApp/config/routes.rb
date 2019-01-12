@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :commentaries
-  resources :forum_posts
+  #Agrega el recurso de comentarios a los post en el foro
+  resources :forum_posts do
+    resources :commentaries, only: [:create, :destroy, :update]
+  end
   resources :questions
   resources :paragraphs
   resources :images

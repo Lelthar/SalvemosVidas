@@ -17,8 +17,22 @@
 
 <p>
   <strong>User:</strong>
-  <%= @forum_post.user %>
+  <%= @forum_post.user.email %>
 </p>
+
+<div>
+	<h3>Comentarios</h3>
+
+	<%= render "commentaries/form" %>
+
+	<ul>
+		<% @forum_post.commentaries.each do |commentary| %>
+			<li>
+				<%= commentary.datail%> - <%= commentary.user.email %>
+			</li>
+		<% end %>
+	</ul>
+</div>
 
 <%= link_to 'Edit', edit_forum_post_path(@forum_post) %> |
 <%= link_to 'Back', forum_posts_path %>

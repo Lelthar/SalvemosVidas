@@ -10,6 +10,7 @@ class ForumPostsController < ApplicationController
   # GET /forum_posts/1
   # GET /forum_posts/1.json
   def show
+    @commentary = Commentary.new
   end
 
   # GET /forum_posts/new
