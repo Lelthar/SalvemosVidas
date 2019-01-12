@@ -14,7 +14,7 @@
  *= require_self
  */
 html, body {
-  background-color: #fafafa;
+  background-color: #fff;
   /*height: 100%;*/
 }
 
@@ -117,3 +117,16 @@ hr.separador{
   background-color: transparent;
 }
 
+.image-sign{
+ width: 34px;
+ height: 34px;
+}
+
+.col-container {
+  display: table;
+  width: 254px;
+}
+
+.col {
+  display: table-cell;
+}

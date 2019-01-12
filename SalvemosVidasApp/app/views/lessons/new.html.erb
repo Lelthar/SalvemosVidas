@@ -1,10 +1,11 @@
+<div class="container" style="background: #fafafa; width: 95%; height: 90%; padding-bottom: 20px;">
+  
+  <h2 align="center">Creación de Lección</h2>
 
-<h2 align="center">Creación de Lección</h2>
+  <%= render 'form', lesson: @lesson %>
 
-<%= render 'form', lesson: @lesson %>
+  <div class="col-sm-offset-2 col-sm-10">
+        <%= button_to 'Volver', "/data_lessons/all", class:"btn" , method: :get %>
+  </div>
 
-<div class="col-sm-offset-2 col-sm-10">
-      <%= button_to 'Volver', "/data_lessons/all", class:"btn" , method: :get %>
 </div>
-
-

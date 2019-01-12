@@ -67,7 +67,7 @@
                 <p><%= practice.description %></p>
               </div>
               <div>
-                <p>Practica de la lección: <%= link_to lesson.name, practice %></a> , creada el <%= practice.created_at %> por <%= practice.lesson.user.username%>. </p>
+                <p>Practica de la lección: <%= link_to practice.lesson.name, practice %></a> , creada el <%= practice.created_at %> por <%= practice.lesson.user.username%>. </p>
               </div>
             </div>
             <br>

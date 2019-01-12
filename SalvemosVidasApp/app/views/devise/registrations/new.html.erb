@@ -5,25 +5,49 @@
   
   <div align="center">
     <div class="field">
-        <%= image_tag("user.png", class:"image-navbar",style:"background: #3b6061;") %>
-        <%= f.text_field :username,class:"form-control",style:"width: 220px;", autofocus: true, placeholder:"Usuario" %>
+        <div class="col-container">
+          <div class="col" style="width: 34px;">
+            <%= image_tag("user.png", class:"image-sign",style:"background: #3b6061;") %>
+          </div>
+          <div class="col" style="width: 220px;">
+            <%= f.text_field :username,class:"form-control",style:"width: 220px;", autofocus: true, placeholder:"Usuario" %>
+          </div>
+        </div>
     </div>
-
+    <br>
     <div class="field">
-        <%= image_tag("email.png", class:"image-navbar",style:"background: #3b6061;") %>
-        <%= f.email_field :email,class:"form-control",style:"width: 220px;", autofocus: false, autocomplete: "email",placeholder:"Correo" %>
+        <div class="col-container">
+          <div class="col" style="width: 34px;">
+            <%= image_tag("email.png", class:"image-sign",style:"background: #3b6061;") %>
+          </div>
+          <div class="col" style="width: 220px;">
+            <%= f.email_field :email,class:"form-control",style:"width: 220px;", autofocus: false, autocomplete: "email",placeholder:"Correo" %>
+          </div>
+        </div> 
     </div>
-
+    <br>
     <div class="field">
-        <%= image_tag("email.png", class:"image-navbar",style:"background: #3b6061;") %>
-        <%= f.password_field :password,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Contraseña" %>
+        <div class="col-container">
+          <div class="col" style="width: 34px;">
+            <%= image_tag("email.png", class:"image-sign",style:"background: #3b6061;") %>
+          </div>
+          <div class="col" style="width: 220px;">
+            <%= f.password_field :password,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Contraseña" %>
+          </div>
+        </div> 
     </div>
-
+    <br>
     <div class="field">
-        <%= image_tag("pass.png", class:"image-navbar",style:"background: #3b6061;") %>
-        <%= f.password_field :password_confirmation,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Repita su contraseña" %>
+        <div class="col-container">
+          <div class="col" style="width: 34px;">
+            <%= image_tag("pass.png", class:"image-sign",style:"background: #3b6061;") %>
+          </div>
+          <div class="col" style="width: 220px;">
+            <%= f.password_field :password_confirmation,class:"form-control",style:"width: 220px;", autocomplete: "new-password",placeholder:"Repita su contraseña" %>
+          </div>
+        </div>        
     </div>
-
+    <br>
     <div class="actions">
       <%= f.submit "Registrarse", class:"btn" %>
     </div>
