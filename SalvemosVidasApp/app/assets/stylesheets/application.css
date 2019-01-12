@@ -14,8 +14,8 @@
  *= require_self
  */
 html, body {
-    background-color: #fafafa;
-  height: 100%;
+  background-color: #fafafa;
+  /*height: 100%;*/
 }
 
 .navbar-inverse .nav li a{
@@ -78,17 +78,42 @@ i {
 }
 
 .conteiner-tema {
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding-left: 50px;
-    font-family: 'Roboto';
-    font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 50px;
+  font-family: 'Roboto';
+  font-size: 18px;
 }
 
 .btn {
-    background-color: red;
-    color: #fff !important;
-    font-family: 'Roboto';
-    font-size: 18px !important;
+  background-color: red;
+  color: #fff !important;
+  font-family: 'Roboto';
+  font-size: 18px !important;
+}
+
+.img-responsive{
+  margin: 0 auto;
+}
+
+.img-home{
+  width: 50%;
+}
+
+.texto-home{
+  width: 95%;
+  color: #a5a5a5;
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+hr.separador{
+  border-top: 3px solid #e2e2e2;
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+
+.railsLink:hover{
+  background-color: transparent;
 }
 
