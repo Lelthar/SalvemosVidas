@@ -77,8 +77,8 @@ class LessonsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
-      print "parametros: ", params
       @lesson = Lesson.find(params[:id])
+      @slides = @lesson.slides
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
