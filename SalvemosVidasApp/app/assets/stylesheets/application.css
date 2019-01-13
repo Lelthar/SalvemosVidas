@@ -130,3 +130,16 @@ hr.separador{
 .col {
   display: table-cell;
 }
+
+a:hover {
+  background-color: gray !important; 
+}
+
+.col-container-foro {
+  display: table;
+  width: 95%;
+}
+
+.col-foro {
+  display: table-cell;
+}

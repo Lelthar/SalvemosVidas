@@ -1,5 +1,12 @@
-<h1>New Forum Post</h1>
 
-<%= render 'form', forum_post: @forum_post %>
+<div class="container" style="background: #fafafa; width: 95%; height: 90%; padding-bottom: 20px;">
+  
+  <h2 align="center">Nuevo Post</h2>
 
-<%= link_to 'Back', forum_posts_path %>
+  <%= render 'form', forum_post: @forum_post %>
+
+  <div class="col-sm-offset-2 col-sm-10">
+  		<%= link_to 'Atras', forum_posts_path, class:"btn" %>
+  </div>
+
+</div>
