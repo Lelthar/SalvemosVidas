@@ -16,4 +16,5 @@ class Lesson < ApplicationRecord
 
   has_many :slides
   has_many :practices
+
 end

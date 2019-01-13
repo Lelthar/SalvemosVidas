@@ -26,6 +26,8 @@ class ParagraphsController < ApplicationController
   def create
     @paragraph = Paragraph.new(paragraph_params)
 
+    print "Parrafos guardar: ",@slide.paragraphs
+
     respond_to do |format|
       if @paragraph.save
         format.html { redirect_to @paragraph, notice: 'Paragraph was successfully created.' }

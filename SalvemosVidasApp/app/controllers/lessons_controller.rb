@@ -33,7 +33,7 @@ class LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+        format.html { redirect_to new_slide_path(lesson_id: @lesson.id), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
@@ -77,6 +77,7 @@ class LessonsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
+      print "parametros: ", params
       @lesson = Lesson.find(params[:id])
     end
 

@@ -1,4 +1,4 @@
-<%= form_with(model: slide, local: true) do |form| %>
+<%= form_with(model: @slide, local: true) do |form| %>
   <% if slide.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
@@ -17,14 +17,26 @@
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :tipo %>
+    <%= form.text_field :tipo %>
   </div>
 
   <div class="field">
     <%= form.label :lesson_id %>
     <%= form.text_field :lesson_id %>
   </div>
+
+  <ul>
+    <h1>Test</h1>
+    <% 2.times{ @slide.paragraphs.new } %>
+    <%= form.fields_for(:paragraphs) do |paragraph_form| %>
+      <li>
+        
+        <%= paragraph_form.text_field :information%>
+        
+      </li>
+    <% end %>
+  </ul>
 
   <div class="actions">
     <%= form.submit %>
