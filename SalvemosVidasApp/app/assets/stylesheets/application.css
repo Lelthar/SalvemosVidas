@@ -143,3 +143,16 @@ a:hover {
 .col-foro {
   display: table-cell;
 }
+
+.texto-descripcion {
+  font-family: 'Roboto';
+  font-size: 20px;
+}
+
+.bg-container{
+  background-color:#fafafa;
+}
+
+.color-titulo{
+  color: #0c4648;
+}

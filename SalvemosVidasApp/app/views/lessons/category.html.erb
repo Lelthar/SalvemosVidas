@@ -9,31 +9,31 @@
           <!--Van las etiquetas: -->
           <div class="row conteiner-tema">
             <%= image_tag("Temas/cortada.png", class:"image-tema") %>
-            <%= link_to 'Cortadas', category: "cortadas" %>
+            <%= link_to 'Cortadas', {category: "cortadas"}, class:"railsLink" %>
           </div>
           <div class="row conteiner-tema">
             <%= image_tag("Temas/quimica.png", class:"image-tema") %>
-            <%= link_to 'Accidente Químico', category: "accidente_quimico" %>
+            <%= link_to 'Accidente Químico', {category: "accidente_quimico"}, class:"railsLink" %>
           </div>
           <div class="row conteiner-tema">
             <%= image_tag("Temas/quemadura.png", class:"image-tema") %>
-            <%= link_to 'Quemaduras', category: "quemaduras" %>
+            <%= link_to 'Quemaduras', {category: "quemaduras"}, class:"railsLink" %>
           </div>
           <div class="row conteiner-tema">
             <%= image_tag("Temas/veneno.png", class:"image-tema") %>
-            <%= link_to 'Envenenamiento', category: "envenenamiento" %>
+            <%= link_to 'Envenenamiento', {category: "envenenamiento"}, class:"railsLink" %>
           </div>
           <div class="row conteiner-tema">
             <%= image_tag("Temas/sentidos.png", class:"image-tema") %>
-            <%= link_to 'Afectación Sentido', category: "afectacion_sentido" %>
+            <%= link_to 'Afectación Sentido', {category: "afectacion_sentido"}, class:"railsLink" %>
           </div>
           <div class="row conteiner-tema">
             <%= image_tag("Temas/accidente.png", class:"image-tema") %>
-            <%= link_to 'Accidente', category: "accidente" %>
+            <%= link_to 'Accidente', {category: "accidente"}, class:"railsLink" %>
           </div>
           <div class="row conteiner-tema">
             <%= image_tag("Temas/prevencion.png", class:"image-tema") %>
-            <%= link_to 'Prevención', category: "prevencion" %>
+            <%= link_to 'Prevención', {category: "prevencion"}, class:"railsLink" %>
           </div>
         </div>
 
@@ -60,18 +60,19 @@
 
             <% @lessons.each do |lesson| %>
               <div style="background: #fff; width: 100%;padding-left: 10px; padding-top: 5px;">
-              <div>
-                <%= link_to lesson.name, lesson %>
+                <div>
+                  <h2> <%= link_to lesson.name, lesson, class:"railsLink" %> </h2>
+                </div>
+                <div>
+                  <p class="texto-descripcion"><%= lesson.description %></p>
+                </div>
+                <div class="text-right">
+                  <br>
+                  Creada por <%= lesson.user.username%> el <%= lesson.created_at.strftime("%F %T")  %>
+                </div>
               </div>
-              <div>
-                <p><%= lesson.description %></p>
-              </div>
-              <div>
-                <p>Publicada por: <%= lesson.user.username %> el <%= lesson.created_at %> </p>
-              </div>
-            </div>
-            <br>
-          <% end %>
+              <br>
+            <% end %>
 
           </div>
 
