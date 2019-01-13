@@ -16,6 +16,7 @@ class PracticesController < ApplicationController
   # GET /practices/new
   def new
     @practice = Practice.new
+    @lessons = current_user.lessons
   end
 
   # GET /practices/1/edit
@@ -32,7 +33,7 @@ class PracticesController < ApplicationController
 
     respond_to do |format|
       if @practice.save
-        format.html { redirect_to @practice, notice: 'Practice was successfully created.' }
+        format.html { redirect_to new_question_path(practice_id: @practice.id), notice: 'Practice was successfully created.' }
         format.json { render :show, status: :created, location: @practice }
       else
         format.html { render :new }

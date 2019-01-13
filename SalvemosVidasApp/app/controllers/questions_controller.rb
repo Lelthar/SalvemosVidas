@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_practice, only: [:new]
   before_action :authenticate_user!
   # GET /questions
   # GET /questions.json
@@ -26,13 +27,25 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
-      else
-        format.html { render :new }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+    @question.practice_id = @@practice_id
+
+    @boton_actual = params[:boton]
+
+    if @boton_actual == "Guardar"
+      respond_to do |format|
+        if @question.save
+          format.html { redirect_to new_question_path(practice_id: @question.practice_id), notice: 'Question was successfully created.' }
+        else
+          format.html { render :new }
+        end
+      end
+    elsif @boton_actual == "Terminar"
+      respond_to do |format|
+        if @question.save
+          format.html { redirect_to "/practices/category/all", notice: 'Question was successfully created.' }
+        else
+          format.html { render :new }
+        end
       end
     end
   end
@@ -67,8 +80,13 @@ class QuestionsController < ApplicationController
       @question = Question.find(params[:id])
     end
 
+    def set_practice
+      @@practice_id = params[:practice_id]
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:description, :correct, :incorrect1, :incorrect2, :incorrect3, :practice_id)
+      params.require(:boton)
+      params.require(:question).permit(:description, :correct, :incorrect1, :incorrect2, :incorrect3)
     end
 end
