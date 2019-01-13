@@ -11,12 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :datail %>
-    <%= form.text_field :datail %>
+  <div class="form-group">
+    <%= form.label :"Deje su comentario:", class:"control-label col-sm-2"%>
+    <div class="col-sm-10">
+      <%= form.text_area :datail, class:"form-control", rows:5,placeholder:"Ingrese su comentario..." %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="col-sm-offset-2 col-sm-10" style="margin-top: 10px;">
+        <%= form.submit :Comentar, class:"btn" %>
   </div>
+
+  <br>
 <% end %>

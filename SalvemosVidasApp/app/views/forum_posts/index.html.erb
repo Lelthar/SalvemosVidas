@@ -21,11 +21,11 @@
           <div align="center">
             <div class="col-container-foro">
               <div class="col-foro" style="width: 80%; padding-left: 10px;  padding-right: 10px;">
-                <p"><%= forum_post.datail %></p>
+                <p class="texto-descripcion"><%= forum_post.datail %></p>
               </div>
               <div class="col-foro" style="width: 20%;">
                 <p><%= forum_post.user.username %></p>
-                <p><%= forum_post.created_at %></p>
+                <p><%= forum_post.created_at.strftime("%F %T") %></p>
                 <%= link_to 'Ver', forum_post , class:"btn", style:"width: 100px;"%>
               </div>
             </div>

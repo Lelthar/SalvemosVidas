@@ -1,39 +1,47 @@
+<div class="container" style="margin-top: -20px; width: 95%; height: 90%;">
+  <div class="panel">
+    <div class="panel-body" style="background-color: #fafafa;">
 
-<p>
-  <strong>Title:</strong>
-  <%= @forum_post.title %>
-</p>
+      <div style="background: #fff; width: 100%;padding-left: 10px; padding-top: 5px; padding-bottom: 10px;border-radius:5px;">
+        
+	      <h2><%= @forum_post.title %></h2>
+	      <div align="center">
+	        <div class="col-container-foro">
+	          <div class="col-foro" style="width: 80%; padding-left: 10px;  padding-right: 10px;">
+	            <p class="texto-descripcion"><%= @forum_post.datail %></p>
+	          </div>
+	          <div class="col-foro" style="width: 20%;">
+	            <p><%= @forum_post.user.username %></p>
+	            <p><%= @forum_post.created_at.strftime("%F %T") %></p>
+	            <p><%= @forum_post.category %></p>
+	          </div>
+	        </div>
+	      </div>
+	      
+	      <div>
+			<h3>Comentarios:</h3>
+			<hr>
+			<div class="row">
+				<%= render "commentaries/form" %>
+			</div>
+			<hr>
+			
+			<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Datail:</strong>
-  <%= @forum_post.datail %>
-</p>
+			<div style="margin-left: 15%;">
+				<% @forum_post.commentaries.each do |commentary| %>
 
-<p>
-  <strong>Category:</strong>
-  <%= @forum_post.category %>
-</p>
+				<div class="caja-comentario" >
+					<p><%= commentary.user.username %> - <%= commentary.created_at.strftime("%F %T") %></p>
+					<p><%= commentary.datail%></p>
+					<a href="">Responder</a>
+				</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @forum_post.user.email %>
-</p>
+			<% end %>
+			</div>
+		</div>
+      </div>
 
-<div>
-	<h3>Comentarios</h3>
-
-	<%= render "commentaries/form" %>
-	
-	<p id="notice"><%= notice %></p>
-
-	<ul>
-		<% @forum_post.commentaries.each do |commentary| %>
-			<li>
-				<%= commentary.datail%> - <%= commentary.user.email %>
-			</li>
-		<% end %>
-	</ul>
+    </div>
+  </div>
 </div>
-
-<%= link_to 'Edit', edit_forum_post_path(@forum_post) %> |
-<%= link_to 'Back', forum_posts_path %>
