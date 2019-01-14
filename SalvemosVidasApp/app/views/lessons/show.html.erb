@@ -1,24 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @lesson.name %>
-</p>
+<div class="container" style="margin-top: -20px; width: 95%; height: 90%;">
+  <div class="panel">
+    <div class="panel-body" style="background-color: #fafafa;">
+		
+		<h2 align="center"><%= @lesson.name %></h2>
+		  
 
-<p>
-  <strong>Description:</strong>
-  <%= @lesson.description %>
-</p>
+		<p>
+		  <strong>Description:</strong>
+		  <%= @lesson.description %>
+		</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @lesson.category %>
-</p>
+		<p>
+		  <strong>Category:</strong>
+		  <%= @lesson.category %>
+		</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @lesson.user %>
-</p>
+		<p>
+		  <strong>User:</strong>
+		  <%= @lesson.user.username %>
+		</p>
 
-<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-<%= link_to 'Back', lessons_path %>
+		<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+		<a href="/lessons/category/all" class="btn">Atras</a>
+    </div>
+  </div>
+</div>
+
