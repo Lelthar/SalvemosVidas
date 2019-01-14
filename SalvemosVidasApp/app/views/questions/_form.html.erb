@@ -11,37 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+  <div id="divPreguntas" class="row col-sm-offset-1">
+    <div class="field">
+      <%= form.text_field :description, placeholder:"Ingrese su pregunta", class:"color-titulo input-question col-sm-8" %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :correct, placeholder:"La opción correcta aquí", class:"input-answer col-sm-offset-1 col-sm-7" %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :incorrect1, placeholder:"Opción incorrecta", class:"input-answer col-sm-offset-1 col-sm-7" %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :incorrect2, placeholder:"Opción incorrecta", class:"input-answer col-sm-offset-1 col-sm-7" %>
+    </div>
+
+    <div class="field">
+      <%= form.text_field :incorrect3, placeholder:"Opción incorrecta", class:"input-answer col-sm-offset-1 col-sm-7" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :correct %>
-    <%= form.text_field :correct %>
-  </div>
-
-  <div class="field">
-    <%= form.label :incorrect1 %>
-    <%= form.text_field :incorrect1 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :incorrect2 %>
-    <%= form.text_field :incorrect2 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :incorrect3 %>
-    <%= form.text_field :incorrect3 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :practice_id %>
-    <%= form.text_field :practice_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions text-right">
+    <%= form.submit "Guardar",name: "boton", class:"btn"%>
+    <%= link_to "Salir","/practices/category/all",class:"btn"%>
   </div>
 <% end %>
