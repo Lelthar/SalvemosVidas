@@ -46,7 +46,7 @@ function myFunction() {
   	document.getElementById('divParrafo3').style.display = 'none';
 
   	//Imagenes
-  	document.getElementById('divImagen1').style.display = 'block';
+  	document.getElementById('divImagen1').style.display = 'none';
   	document.getElementById('divImagen2').style.display = 'none';
   	document.getElementById('divImagen3').style.display = 'none';
 
@@ -69,8 +69,17 @@ function myFunction() {
 
   	//Imagenes
   	document.getElementById('divImagen1').style.display = 'block';
-  	document.getElementById('divImagen2').style.display = 'block';
-  	document.getElementById('divImagen3').style.display = 'block';
+  	document.getElementById('divImagen2').style.display = 'none';
+  	document.getElementById('divImagen3').style.display = 'none';
+  }else if(tipo == "tipo5"){
+  	document.getElementById('divParrafo1').style.display = 'block';
+  	document.getElementById('divParrafo2').style.display = 'block';
+  	document.getElementById('divParrafo3').style.display = 'none';
+
+  	//Imagenes
+  	document.getElementById('divImagen1').style.display = 'none';
+  	document.getElementById('divImagen2').style.display = 'none';
+  	document.getElementById('divImagen3').style.display = 'none';
   }
   //Agregar más si existiera otro tipo
 }

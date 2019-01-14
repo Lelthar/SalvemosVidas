@@ -5,22 +5,16 @@
     <div class="panel-body" style="background-color: #fafafa;">
 		
 		<h2 align="center"><%= @lesson.name %></h2>
-		  
+		
+		<div align="center" style="padding: 10px;">
+          <div class="container-Diapositivas">
+          	<h2>Titulo</h2>
+          	<p class="texto-Diapositivas">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          	<%= image_tag("i_practicas.jpg", class:"img-Diapositivas") %>
+          </div>
+        </div>
 
-		<p>
-		  <strong>Description:</strong>
-		  <%= @lesson.description %>
-		</p>
-
-		<p>
-		  <strong>Category:</strong>
-		  <%= @lesson.category %>
-		</p>
-
-		<p>
-		  <strong>User:</strong>
-		  <%= @lesson.user.username %>
-		</p>
+        <br>
 
 		<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
 		<a href="/lessons/category/all" class="btn">Atras</a>
