@@ -28,26 +28,15 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     @question.practice_id = @@practice_id
-
-    @boton_actual = params[:boton]
-
-    if @boton_actual == "Guardar"
-      respond_to do |format|
-        if @question.save
-          format.html { redirect_to new_question_path(practice_id: @question.practice_id), notice: 'Question was successfully created.' }
-        else
-          format.html { render :new }
-        end
-      end
-    elsif @boton_actual == "Terminar"
-      respond_to do |format|
-        if @question.save
-          format.html { redirect_to "/practices/category/all", notice: 'Question was successfully created.' }
-        else
-          format.html { render :new }
-        end
+    
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to new_question_path(practice_id: @question.practice_id), notice: 'Question was successfully created.' }
+      else
+        format.html { render :new }
       end
     end
+ 
   end
 
   # PATCH/PUT /questions/1
@@ -86,7 +75,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:boton)
       params.require(:question).permit(:description, :correct, :incorrect1, :incorrect2, :incorrect3)
     end
 end

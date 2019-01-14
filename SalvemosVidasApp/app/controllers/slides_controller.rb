@@ -28,28 +28,14 @@ class SlidesController < ApplicationController
     @slide = Slide.new(slide_params)
 
     @slide.lesson_id = @@lesson_id
-
-    @boton_actual = params[:boton]
-
    
-    if @boton_actual == "Guardar"
-      respond_to do |format|
-        if @slide.save
-          format.html { redirect_to new_slide_path(lesson_id: @slide.lesson_id), notice: 'Slide was successfully created.' }
-        else
-          format.html { render :new }
-        end
-      end
-    elsif @boton_actual == "Terminar"
-      respond_to do |format|
-        if @slide.save
-          format.html { redirect_to "/lessons/category/all", notice: 'Slide was successfully created.' }   
-        else
-          format.html { render :new }
-        end
+    respond_to do |format|
+      if @slide.save
+        format.html { redirect_to new_slide_path(lesson_id: @slide.lesson_id), notice: 'Slide was successfully created.' }
+      else
+        format.html { render :new }
       end
     end
-
     
   end
 
@@ -89,7 +75,6 @@ class SlidesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def slide_params
-      params.require(:boton)
       params.require(:slide).permit(:title, :tipo, :parrafo1, :parrafo2, :parrafo3, :imagen1, :imagen2, :imagen3)
     end
 end

@@ -25,7 +25,9 @@ class ForumPostsController < ApplicationController
   # POST /forum_posts
   # POST /forum_posts.json
   def create
-    @forum_post = ForumPost.new(forum_post_params)
+    @forum_post = current_user.forum_posts.new(forum_post_params)
+
+    print "Error raro: ",@forum_post.to_json
 
     respond_to do |format|
       if @forum_post.save
@@ -70,6 +72,6 @@ class ForumPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def forum_post_params
-      params.require(:forum_post).permit(:title, :datail, :category, :user_id)
+      params.require(:forum_post).permit(:title, :datail, :category)
     end
 end

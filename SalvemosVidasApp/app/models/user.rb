@@ -27,7 +27,7 @@ class User < ApplicationRecord
   has_many :forum_posts
   has_many :lessons
 
-  has_many :forum_posts, through: :commentaries
+  #has_many :forum_posts, through: :commentaries
   #Este es un metodo de clase
   def self.from_omniauth(auth_data)
   	where(provider: auth_data[:provider], uid: auth_data[:uid]).first_or_create do |user|
