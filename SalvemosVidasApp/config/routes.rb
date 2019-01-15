@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     registrations: "users/registrations"
   }
 
+  resources :usuarios, as: :users, only: [:show,:update,:edit]
+
   post "/custom_sign_up", to: "users/omniauth_callbacks#custom_sign_up"
   get "/lessons/category/:category(.:format)", to: "lessons#category"
   get "/practices/category/:category(.:format)", to: "practices#category"
