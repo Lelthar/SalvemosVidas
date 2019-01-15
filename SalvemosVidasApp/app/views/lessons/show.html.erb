@@ -5,19 +5,55 @@
     <div class="panel-body" style="background-color: #fafafa;">
 		
 		<h2 align="center"><%= @lesson.name %></h2>
+		<div id="container-Slide">
+			<div align="center" style="padding: 10px;">
+	          <div class="container-Diapositivas">
+	          	<h2><%= @lesson.name %></h2>
+	          	<br>
+	          	<p class="texto-Diapositivas"> <%= @lesson.description %> </p>
+	          	<br>
+	          	<p class="texto-Diapositivas">Trata sobre: <%= @lesson.category %> </p>
+	          	<br>
+	          	<p class="texto-Diapositivas">Creada el <%= @lesson.created_at %></p>
+	          </div>
+
+	        </div>	
+		</div>
+		<div id="paginacion">
+			
+		</div>
 		
-		<div align="center" style="padding: 10px;">
-          <div class="container-Diapositivas">
-          	<h2>Titulo</h2>
-          	<p class="texto-Diapositivas">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          	<%= image_tag("i_practicas.jpg", class:"img-Diapositivas") %>
-          </div>
-        </div>
+		<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+  		<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 
-        <br>
+		<script>
+		var slideIndex = -1;
+		var  slides = 	<%= raw @slides.to_json %>;
 
-		<%= link_to 'Edit', edit_lesson_path(@lesson) %> |
-		<a href="/lessons/category/all" class="btn">Atras</a>
+		function plusDivs(n) {
+			if(n == 1){
+				if(slideIndex < slides.length){
+					if(slideIndex < slides.length-1){
+						slideIndex++;
+					}	
+					mostrarDiapositiva(slides[slideIndex]);		
+				}
+				
+			}else{
+				if(slideIndex > 0){
+					slideIndex--;
+					mostrarDiapositiva(slides[slideIndex]);
+				}
+			}
+			var actual = slideIndex+1;
+			var total = slides.length-1;
+			document.getElementById('paginacion').innerHTML = "<p align='center'>"+actual+"/"+slides.length+"</p>";
+		}
+		</script>
+
+		<div class="col-sm-offset-2 col-sm-2">
+        <a href="/lessons/category/all" style="display: none;" class="btn">Atras</a>
+ 		</div>
     </div>
   </div>
 </div>

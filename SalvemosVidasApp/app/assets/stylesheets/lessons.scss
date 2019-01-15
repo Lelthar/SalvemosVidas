@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container-Diapositivas {
-	height: 70%;
+	height: 450px;
 	width: 75%;
 	background: white;
 	padding: 10px;
@@ -18,5 +18,15 @@
 
 .imagen-Diapositivas {
 	margin: 0 auto;
-	width: 40%;
+	width: 20%;
+	height: 40px !important;
+}
+
+.cuadrado {
+  width:25vh;
+  max-width:100px;
+  height:25vh;
+  max-height:100px;
+  position:relative;
+  background:red;
 }

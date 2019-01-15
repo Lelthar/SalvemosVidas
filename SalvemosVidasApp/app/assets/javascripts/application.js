@@ -83,3 +83,19 @@ function myFunction() {
   }
   //Agregar más si existiera otro tipo
 }
+
+function mostrarDiapositiva(slide) {
+  var dataSlide = "";
+  if(slide.tipo == "tipo1"){
+    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'><h2>"+slide.title+"</h2>  <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <img class='img-responsive' width='250' height='250' src='"+slide.imagen1+"' alt=''> </div> </div>";
+  }else if(slide.tipo == "tipo2"){
+    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <br> <div class='col-xs-6'> <p class='texto-Diapositivas'>"+slide.parrafo1+"</p> </div> <div class='col-xs-6'> <p class='texto-Diapositivas'>"+slide.parrafo2+" </p> </div> </div> </div>";
+  }else if(slide.tipo == "tipo3"){
+    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <div class='col-xs-6'> <img class='img-responsive' width='250' height='250' src='"+slide.imagen1+"' alt=''> </div> <div class='col-xs-6'> <img class='img-responsive' width='250' height='250' src='"+slide.imagen2+"' alt=''> </div> </div> </div>";
+  }else if(slide.tipo == "tipo4"){
+    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <br> <div class='col-xs-6'> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> </div> <div class='col-xs-6'> <img class='img-responsive' width='350' height='350' src='"+slide.imagen1+"' alt=''> </div> </div> </div>";
+  }else if(slide.tipo == "tipo5"){
+    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <p class='texto-Diapositivas'> "+slide.parrafo2+" </p> </div> </div>";
+  }
+  document.getElementById('container-Slide').innerHTML = dataSlide;
+}
