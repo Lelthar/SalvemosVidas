@@ -14,7 +14,7 @@
 	          	<br>
 	          	<p class="texto-Diapositivas">Trata sobre: <%= @lesson.category %> </p>
 	          	<br>
-	          	<p class="texto-Diapositivas">Creada el <%= @lesson.created_at %></p>
+	          	<p class="texto-Diapositivas">Creada el <%= @lesson.created_at.strftime("%F %T") %></p>
 	          </div>
 
 	        </div>	
