@@ -12,6 +12,7 @@
 #
 
 class Lesson < ApplicationRecord
+	validates :name, uniqueness: true
   belongs_to :user
 
   has_many :slides

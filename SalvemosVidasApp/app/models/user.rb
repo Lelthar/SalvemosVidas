@@ -23,6 +23,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
+  #validates :username, uniqueness: true
+  validates :username, uniqueness: true
   has_many :commentaries
   has_many :forum_posts
   has_many :lessons

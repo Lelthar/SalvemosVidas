@@ -12,7 +12,6 @@
 
 class Slide < ApplicationRecord
   belongs_to :lesson
-
   has_many :images
 
 end
