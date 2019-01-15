@@ -1,6 +1,7 @@
 class UsuariosController < ApplicationController
-	before_action :set_user, only: [:show,:edit,:update]
+	before_action :set_user
 	before_action :authenticate_user!
+	before_action :authenticate_owner!, only: [:update]
 
 	def show
   end
@@ -12,8 +13,10 @@ class UsuariosController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { render :show }
       else
         format.html { render :edit }
+        format.json { render json: @user.errors  }
       end
     end
   end
@@ -27,5 +30,11 @@ class UsuariosController < ApplicationController
   	def set_user
   		@user = User.find(params[:id])
   		@cantidad_lecciones = @user.lessons.count
+  	end
+
+  	def authenticate_owner!
+  		if current_user != @user
+  			redirect_to root_path, notice: "No estás autorizado", status: :unauthorized
+  		end
   	end
 end
