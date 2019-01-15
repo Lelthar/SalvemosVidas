@@ -14,5 +14,5 @@
 class Practice < ApplicationRecord
   belongs_to :lesson
 
-  has_many :questions
+  has_many :questions, dependent: :destroy
 end

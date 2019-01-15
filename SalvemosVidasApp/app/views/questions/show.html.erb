@@ -1,34 +1,31 @@
 <p id="notice"><%= notice %></p>
-hola questions
-<p>
-  <strong>Description:</strong>
-  <%= @question.description %>
-</p>
 
-<p>
-  <strong>Correct:</strong>
-  <%= @question.correct %>
-</p>
+<div id="divPreguntas" class="row col-sm-offset-1">
+  <div class="field">
+    <label class="color-titulo label-question col-sm-8"><%= @question.description %></label>
+  </div>
 
-<p>
-  <strong>Incorrect1:</strong>
-  <%= @question.incorrect1 %>
-</p>
+  <div class="field">
+    <label class="label-answer col-sm-offset-1 col-sm-7"><%= @question.correct %></label>
+  </div>
 
-<p>
-  <strong>Incorrect2:</strong>
-  <%= @question.incorrect2 %>
-</p>
+  <div class="field">
+    <label class="label-answer col-sm-offset-1 col-sm-7"><%= @question.incorrect1 %></label>
+  </div>
 
-<p>
-  <strong>Incorrect3:</strong>
-  <%= @question.incorrect3 %>
-</p>
+  <div class="field">
+    <label class="label-answer col-sm-offset-1 col-sm-7"><%= @question.incorrect2 %></label>
+  </div>
 
-<p>
-  <strong>Practice:</strong>
-  <%= @question.practice %>
-</p>
+  <div class="field">
+    <label class="label-answer col-sm-offset-1 col-sm-7"><%= @question.incorrect3 %></label>
+  </div>
+
+  <div class="col-sm-offset-7 col-sm-5">
+    <%= link_to 'Editar', edit_question_path(@question), class:"btn" %>
+    <%= link_to 'Eliminar', new_question_path(practice_id: @question.practice_id), method: :delete, data: { confirm: '¿Seguro que desea eliminar la pregunta?' } , class:"btn"%>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |
 <%= link_to 'Back', questions_path %>

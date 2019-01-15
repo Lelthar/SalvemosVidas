@@ -47,7 +47,7 @@ class PracticesController < ApplicationController
   def update
     respond_to do |format|
       if @practice.update(practice_params)
-        format.html { redirect_to @practice, notice: 'Practice was successfully updated.' }
+        format.html { redirect_to new_question_path(practice_id: @practice.id), notice: 'Practice was successfully updated.' }
         format.json { render :show, status: :ok, location: @practice }
       else
         format.html { render :edit }
@@ -59,9 +59,10 @@ class PracticesController < ApplicationController
   # DELETE /practices/1
   # DELETE /practices/1.json
   def destroy
+    @practice.questions.destroy
     @practice.destroy
     respond_to do |format|
-      format.html { redirect_to practices_url, notice: 'Practice was successfully destroyed.' }
+      format.html { redirect_to "/practices/category/all", notice: 'Practice was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

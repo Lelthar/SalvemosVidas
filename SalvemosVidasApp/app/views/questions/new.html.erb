@@ -2,9 +2,8 @@
 <div class="container bg-container">
 	<h1 class="color-titulo"> Ahora agregue las preguntas </h1>
 
-	<% @questions.each do |question| %>
-		<% if question.practice_id.to_s === params[:practice_id].to_s %>
-	    <div id="divPreguntas" class="row col-sm-offset-1">
+	<% @practice.questions.each do |question| %>
+		<div id="divPreguntas" class="row col-sm-offset-1">
 	      <div class="field">
 	      	<label class="color-titulo label-question col-sm-8"><%= question.description %></label>
 	      </div>
@@ -27,17 +26,17 @@
 
 	      <div class="col-sm-offset-7 col-sm-5">
 	      	<%= link_to 'Editar', edit_question_path(question), class:"btn" %>
-	      	<%= link_to 'Eliminar', new_question_path(practice_id: @question.practice_id), method: :delete, data: { confirm: '¿Seguro que desea eliminar la pregunta?' } , class:"btn"%>
+	      	<%= link_to 'Eliminar', question, method: :delete, data: { confirm: '¿Seguro que desea eliminar la pregunta?' }, class:"btn" %>
 	      </div>
-	      
 	    </div>
-	    <hr class="separador col-sm-offset-1 col-sm-9">
-	    <% end %>
 
+	    <hr class="separador col-sm-offset-1 col-sm-9">
 	<% end %>
 
-
-	<%= render 'form', question: @question %>
+	<div id="formPregunta">
+		<%= render 'form', question: @question %>
+	</div>
+	
 </div>
 
 <%= link_to 'Back', questions_path %>

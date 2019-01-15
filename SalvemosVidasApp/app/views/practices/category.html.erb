@@ -75,6 +75,11 @@
                       Creada por <%= practice.lesson.user.username%> el <%= practice.created_at.strftime("%F %T")  %>
                   </div>
                 </div>
+                <%= practice.lesson.user.id %> <%= current_user.id %>
+                <% if practice.lesson.user.id === current_user.id %>
+                  <%= link_to 'Editar', edit_practice_path(practice) %> | 
+                  <%= link_to 'Eliminar', practice, method: :delete, data: { confirm: '¿Seguro que desea eliminar la práctica?' }%>
+                <% end %>
               </div>
               <br>
             <% end %>
