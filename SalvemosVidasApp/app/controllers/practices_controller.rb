@@ -11,6 +11,7 @@ class PracticesController < ApplicationController
   # GET /practices/1
   # GET /practices/1.json
   def show
+    @my_array = []
   end
 
   # GET /practices/new
@@ -59,7 +60,6 @@ class PracticesController < ApplicationController
   # DELETE /practices/1
   # DELETE /practices/1.json
   def destroy
-    @practice.questions.destroy
     @practice.destroy
     respond_to do |format|
       format.html { redirect_to "/practices/category/all", notice: 'Practice was successfully destroyed.' }
