@@ -30,7 +30,6 @@ class UsuariosController < ApplicationController
   	def set_user
   		@user = User.find(params[:id])
   		@cantidad_lecciones = @user.lessons.count
-      @slide = Slide.first
   	end
 
   	def authenticate_owner!
