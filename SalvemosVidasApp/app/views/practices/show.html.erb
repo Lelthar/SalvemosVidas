@@ -8,49 +8,108 @@
 
 	<hr class="separador col-sm-offset-1 col-sm-9">
 
+	<div id="preguntas">
 	<% @practice.questions.each do |question| %>
 		
 		<div class="row col-sm-offset-1">
-	      <div class="field row">
-	      	<label class="color-titulo label-question col-sm-12"><%= question.description %></label>
-	      </div>
+	      	  <div class="field row">
+	      		<label class="color-titulo label-question col-sm-12"><%= question.description %></label>
+	          </div>
 
-	      <div class="row">
-	      	  <div class="field col-sm-offset-1 col-sm-9 question-option">
-		      	<%= radio_button_tag question.id, @options_array[@cont][0], false, class:"col-sm-offset-2" %>
-		      	<%= label question.id, @options_array[@cont][0], :value => "false", class:"label-answer" %>
+	      	  <div class="row">
+	      	  	<div class="field col-sm-offset-1 col-sm-9 question-option">
+			      	<%= radio_button_tag question.id, @options_array[@cont][0], false, class:"col-sm-offset-2" %>
+			      	<%= label question.id, @options_array[@cont][0], :value => "false", class:"label-answer" %>
+			    </div>
+		      </div>
+
+		      <div class="row">
+		      	<div class="field col-sm-offset-1 col-sm-9 question-option">
+			      	<%= radio_button_tag question.id, @options_array[@cont][1], false, class:"col-sm-offset-2" %>
+			      	<%= label question.id, @options_array[@cont][1], :value => "false", class:"label-answer" %>
+			    </div>
+		      </div>
+
+		      <div class="row">
+		      	<div class="field col-sm-offset-1 col-sm-9 question-option">
+			      	<%= radio_button_tag question.id, @options_array[@cont][2], false, class:"col-sm-offset-2" %>
+			      	<%= label question.id, @options_array[@cont][2], :value => "false", class:"label-answer" %>
+			    </div>
+		      </div>
+
+		      <div class="row">
+		      	<div class="field col-sm-offset-1 col-sm-9 question-option">
+			      	<%= radio_button_tag question.id, @options_array[@cont][3], false, class:"col-sm-offset-2" %>
+			      	<%= label question.id, @options_array[@cont][3], :value => "false", class:"label-answer" %>
+			    </div>
 		      </div>
 	      </div>
-
-	      <div class="row">
-	      	<div class="field col-sm-offset-1 col-sm-9 question-option">
-		      	<%= radio_button_tag question.id, @options_array[@cont][1], false, class:"col-sm-offset-2" %>
-		      	<%= label question.id, @options_array[@cont][1], :value => "false", class:"label-answer" %>
-		    </div>
-	      </div>
-
-	      <div class="row">
-	      	<div class="field col-sm-offset-1 col-sm-9 question-option">
-		      	<%= radio_button_tag question.id, @options_array[@cont][2], false, class:"col-sm-offset-2" %>
-		      	<%= label question.id, @options_array[@cont][2], :value => "false", class:"label-answer" %>
-		    </div>
-	      </div>
-
-	      <div class="row">
-	      	<div class="field col-sm-offset-1 col-sm-9 question-option">
-		      	<%= radio_button_tag question.id, @options_array[@cont][3], false, class:"col-sm-offset-2" %>
-		      	<%= label question.id, @options_array[@cont][3], :value => "false", class:"label-answer" %>
-		    </div>
-	      </div>
-	    
-	    </div>
 
 	    <hr class="separador col-sm-offset-1 col-sm-9">
 	    <% @cont = @cont +1 %>
 	<% end %>
+	</div>
+
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p id="textoModal"></p>
+		</div>
+	</div>
 
 	<div class="col-sm-12 text-center">
-		<span class="btn"> Terminar </span>
+		<span class="btn" onclick="evaluar([<%= @questions.to_json %>])"> Terminar </span>
 	</div>
+
+	<script>
+		function evaluar(questions){
+			//console.log(questions[0]);
+			var divGeneral = document.getElementById("preguntas");
+
+			var contPregunta = 0;
+			var cantCorrectas = 0;
+			for (i = 0; i < (questions[0].length*2); i+=2) {
+				var divPregunta = divGeneral.children[i];	//cambia entre las preguntas
+				for(j=1; j<=4; j++){
+					var divOpcion = divPregunta.children[j];
+					var radioButton = divOpcion.children[0].children[0];
+
+					if(radioButton.checked && questions[0][contPregunta].correct === radioButton.value){
+						cantCorrectas++;
+						break;
+					}
+				}
+				contPregunta++;
+			}
+			var cantIncorrectas = questions[0].length - cantCorrectas;
+			var promedio = (cantCorrectas/questions[0].length)*100; 
+
+			var mensaje = document.getElementById("textoModal");
+			mensaje.innerText = "Su promedio es de: " + roundToTwo(promedio);
+
+			var modal = document.getElementById("myModal");
+			modal.style.display = "block";
+		}
+
+		function roundToTwo(num) {    
+    		return +(Math.round(num + "e+2")  + "e-2");
+		}
+
+		var span = document.getElementsByClassName("close")[0];
+		span.onclick = function() { 				// cierra el modal cuando le dan a X y redirecciona
+			var modal = document.getElementById("myModal");
+			modal.style.display = "none";
+
+			return parent.window.location="/practices/category/all";
+		}
+		
+		window.onclick = function(event) {			// Si clickean fuera del modal, se cierra
+			var modal = document.getElementById("myModal");
+			if (event.target == modal) {
+				modal.style.display = "none";
+				return parent.window.location="/practices/category/all";
+			}
+		}
+	</script>
 
 </div>
