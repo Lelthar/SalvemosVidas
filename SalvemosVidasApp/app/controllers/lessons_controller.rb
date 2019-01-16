@@ -79,6 +79,19 @@ class LessonsController < ApplicationController
     def set_lesson
       @lesson = Lesson.find(params[:id])
       @slides = @lesson.slides.reverse
+      @path_image1 = []
+      @slides.each do |slide|
+         @path_image1 << slide.image1.url(:small)
+      end
+      @path_image2 = []
+      @slides.each do |slide|
+         @path_image2 << slide.image2.url(:small)
+      end
+      @path_image3 = []
+      @slides.each do |slide|
+         @path_image3 << slide.image3.url(:small)
+      end
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
