@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_13_013121) do
+ActiveRecord::Schema.define(version: 2019_01_15_234353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,18 @@ ActiveRecord::Schema.define(version: 2019_01_13_013121) do
     t.text "imagen1"
     t.text "imagen2"
     t.text "imagen3"
+    t.string "image1_file_name"
+    t.string "image1_content_type"
+    t.integer "image1_file_size"
+    t.datetime "image1_updated_at"
+    t.string "image2_file_name"
+    t.string "image2_content_type"
+    t.integer "image2_file_size"
+    t.datetime "image2_updated_at"
+    t.string "image3_file_name"
+    t.string "image3_content_type"
+    t.integer "image3_file_size"
+    t.datetime "image3_updated_at"
     t.index ["lesson_id"], name: "index_slides_on_lesson_id"
   end
 
