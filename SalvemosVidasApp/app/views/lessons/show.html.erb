@@ -36,7 +36,8 @@
 				if(slideIndex < slides.length){
 					if(slideIndex < slides.length-1){
 						slideIndex++;
-						<% i += 1%>
+						var x = <%= i =i + 1%>;
+						console.log(x);
 						mostrarDiapositiva(slides[slideIndex]);	
 					}			
 				}
@@ -44,10 +45,11 @@
 			}else{
 				if(slideIndex > 0){
 					slideIndex--;
-					<% i -= 1%>
+					<% i =i - 1%>
 					mostrarDiapositiva(slides[slideIndex]);
 				}
 			}
+			console.log(<%= i %>);
 			var actual = slideIndex+1;
 			var total = slides.length-1;
 			document.getElementById('paginacion').innerHTML = "<p align='center'>"+actual+"/"+slides.length+"</p>";
@@ -62,7 +64,7 @@
 		  }else if(slide.tipo == "tipo3"){
 		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <div class='col-xs-6'> <img class='img-responsive' src='<%= @slides[i].image1.url(:small) %>' alt=''> </div> <div class='col-xs-6'> <img class='img-responsive' src='<%= @slides[i].image2.url(:small) %>' alt=''> </div> </div> </div>";
 		  }else if(slide.tipo == "tipo4"){
-		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <br> <div class='col-xs-6'> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> </div> <div class='col-xs-6'> <img class='img-responsive' width='350' height='350' src='<%= @slides[i].image1.url(:medium) %>' alt=''> </div> </div> </div>";
+		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <br> <div class='col-xs-6'> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> </div> <div class='col-xs-6'> <img class='img-responsive' src='<%= @slides[i].image1.url(:medium) %>' alt=''> </div> </div> </div>";
 		  }else if(slide.tipo == "tipo5"){
 		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <p class='texto-Diapositivas'> "+slide.parrafo2+" </p> </div> </div>";
 		  }
