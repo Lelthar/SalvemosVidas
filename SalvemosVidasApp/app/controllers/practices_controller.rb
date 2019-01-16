@@ -11,6 +11,22 @@ class PracticesController < ApplicationController
   # GET /practices/1
   # GET /practices/1.json
   def show
+    @practice = Practice.find(params[:id])
+
+    #Desordena todas las opciones para mostrar en la vista
+    @options_array = []
+    @practice.questions.each do |question|
+      @temp_array = []
+      @temp_array << question.correct
+      @temp_array << question.incorrect1
+      @temp_array << question.incorrect2
+      @temp_array << question.incorrect3
+      @temp_array = @temp_array.shuffle
+      @options_array << @temp_array
+    end
+    #para iterar sobre las opciones en la vista
+    @cont = 0
+    puts @options_array[0]
   end
 
   # GET /practices/new
@@ -21,6 +37,7 @@ class PracticesController < ApplicationController
 
   # GET /practices/1/edit
   def edit
+    @lessons = current_user.lessons.select(:id,:name)
   end
 
   def category
@@ -30,6 +47,9 @@ class PracticesController < ApplicationController
   # POST /practices.json
   def create
     @practice = Practice.new(practice_params)
+    @lessons = current_user.lessons.select(:id,:name)
+    @lesson = Lesson.find(practice_params["lesson_id"])
+    @practice.category = @lesson.category
 
     respond_to do |format|
       if @practice.save
