@@ -36,7 +36,15 @@
             <ul class="nav navbar-nav navbar-right">
               <li class=" dropdown"><a href="#" class="dropdown-toggle active texto-navbar" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" >Menú<span class="caret"></span></a>
                 <ul class="dropdown-menu" style="background: #3b6061">
-                  <li class="texto-navbar"><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to "/usuarios/"+current_user.id.to_s do%>
+                      <span class="glyphicon glyphicon-pencil texto-navbar"/>
+                      <span class="texto-navbar">Editar perfil</span>
+                    <% end %>
+                  </li>
+                  <li><%= link_to destroy_user_session_path, method: :delete do%>
+                      <span class="glyphicon glyphicon-log-out texto-navbar"/>
+                      <span class="texto-navbar">Cerrar sesión</span>
+                    <% end %>
                 </ul>               
               </li>
             </ul>

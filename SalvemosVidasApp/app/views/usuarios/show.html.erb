@@ -1,3 +1,40 @@
-<div>Correo: <%= best_in_place_if current_user == @user, @user, :email %></div>
-<div>Username: <%= best_in_place_if current_user == @user,@user, :username %></div>
-<div>Cantidad de lecciones creadas: <%= @cantidad_lecciones %></div>
+<h2 align="center">Editar Perfil</h2>
+ 
+<div align="center">
+
+	<div class="field">
+	  <div class="col-container">
+	    <div class="col" style="width: 34px;">
+	      <%= image_tag("user.png", class:"image-sign",style:"background: #3b6061;") %>
+	    </div>
+	    <div class="col" style="width: 220px;">
+	      <div><%= best_in_place_if current_user == @user,@user, :username %></div>
+	    </div>
+	  </div> 
+	</div>
+
+	<br>
+
+	<div class="field">
+	  <div class="col-container">
+	    <div class="col" style="width: 34px;">
+	      <%= image_tag("email.png", class:"image-sign",style:"background: #3b6061;") %>
+	    </div>
+	    <div class="col" style="width: 220px;">
+	      <%= best_in_place_if current_user == @user, @user, :email %>
+	    </div>
+	  </div> 
+	</div>
+
+	<div class="field">
+	  <div class="col-container">
+	    <div class="col text-center" style="width: 254px;">
+	      <hr class="separador">
+	      Cantidad de lecciones creadas: 
+	      <br>
+	      <%= @cantidad_lecciones %>
+	    </div>
+	  </div> 
+	</div>
+
+</div>
