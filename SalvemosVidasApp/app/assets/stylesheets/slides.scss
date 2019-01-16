@@ -1,3 +1,9 @@
 // Place all the styles related to the Slides controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.carousel, .carousel-inner > .item > img {
+  height: 334px;
+  width:  503px;
+}
+

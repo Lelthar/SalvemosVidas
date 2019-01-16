@@ -27,6 +27,7 @@
   		<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
 
 		<script>
+		<% i = -1%>
 		var slideIndex = -1;
 		var  slides = 	<%= raw @slides.to_json %>;
 
@@ -35,13 +36,15 @@
 				if(slideIndex < slides.length){
 					if(slideIndex < slides.length-1){
 						slideIndex++;
-					}	
-					mostrarDiapositiva(slides[slideIndex]);		
+						<% i += 1%>
+						mostrarDiapositiva(slides[slideIndex]);	
+					}			
 				}
 				
 			}else{
 				if(slideIndex > 0){
 					slideIndex--;
+					<% i -= 1%>
 					mostrarDiapositiva(slides[slideIndex]);
 				}
 			}
@@ -49,6 +52,23 @@
 			var total = slides.length-1;
 			document.getElementById('paginacion').innerHTML = "<p align='center'>"+actual+"/"+slides.length+"</p>";
 		}
+
+		function mostrarDiapositiva(slide) {
+		  var dataSlide = "";
+		  if(slide.tipo == "tipo1"){
+		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'><h2>"+slide.title+"</h2>  <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <img class='img-responsive' src='<%= @slides[i].image1.url(:small) %>' alt=''> </div> </div>";
+		  }else if(slide.tipo == "tipo2"){
+		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <br> <div class='col-xs-6'> <p class='texto-Diapositivas'>"+slide.parrafo1+"</p> </div> <div class='col-xs-6'> <p class='texto-Diapositivas'>"+slide.parrafo2+" </p> </div> </div> </div>";
+		  }else if(slide.tipo == "tipo3"){
+		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <div class='col-xs-6'> <img class='img-responsive' src='<%= @slides[i].image1.url(:small) %>' alt=''> </div> <div class='col-xs-6'> <img class='img-responsive' src='<%= @slides[i].image2.url(:small) %>' alt=''> </div> </div> </div>";
+		  }else if(slide.tipo == "tipo4"){
+		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <br> <div class='col-xs-6'> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> </div> <div class='col-xs-6'> <img class='img-responsive' width='350' height='350' src='<%= @slides[i].image1.url(:medium) %>' alt=''> </div> </div> </div>";
+		  }else if(slide.tipo == "tipo5"){
+		    dataSlide = "<div align='center' style='padding: 10px;'> <div class='container-Diapositivas'> <h2>"+slide.title+"</h2> <p class='texto-Diapositivas'> "+slide.parrafo1+" </p> <br> <p class='texto-Diapositivas'> "+slide.parrafo2+" </p> </div> </div>";
+		  }
+		  document.getElementById('container-Slide').innerHTML = dataSlide;
+		}
+
 		</script>
 
 		<div class="col-sm-offset-2 col-sm-2">
