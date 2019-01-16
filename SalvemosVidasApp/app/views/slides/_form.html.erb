@@ -78,6 +78,12 @@
         </div>
       </div>
 
+      <%= form.file_field :image1 %>
+
+      <%= form.file_field :image2 %>
+
+      <%= form.file_field :image3 %>
+
       <div class="actions">
         <div class="col-sm-offset-2 col-sm-10">
           <%= form.submit "Guardar",name: "boton", class:"btn"%> <%= link_to "Terminar","/lessons/category/all",class:"btn"%>
